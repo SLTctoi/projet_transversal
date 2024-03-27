@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastermind</title>
+    <style>
+        .color-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mastermind</h1>
+    <form method="post">
+        {% for i in range(4) %}
+            <select name="color{{ i+1 }}">
+                {% for color in colors %}
+                    <option value="{{ color }}" {% if guess and guess[i] == color %}selected{% endif %}>{{ color }}</option>
+                {% endfor %}
+            </select>
+        {% endfor %}
+        <button type="submit">Guess</button>
+    </form>
+    {% if guess %}
+        <p> couleur et position correcte : {{ correct_color_and_position }}</p>
+        <p> couleur correcte: {{ correct_color_only }}</p>
+    {% endif %}
+    <p><a href="/restart">Restart</a></p>
+</body>
+</html>

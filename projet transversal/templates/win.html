@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastermind</title>
+</head>
+<body>
+    <h1>Tu as gagné !</h1>
+    <p>le code est :</p>
+    <div>
+        {% for color in code %}
+            <div class="color-circle" style="background-color: {{ color }}"></div>
+        {% endfor %}
+    </div>
+    <p><a href="/restart">Rejouer</a></p>
+</body>
+</html>
